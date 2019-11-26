@@ -6,6 +6,8 @@ class Chat(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(Integer)
+    # created_at
+    # last_seen
 
     def __repr__(self):
-        return f'Chat {self.id}'
+        return f'Chat <{self.id} : {self.name}>'
