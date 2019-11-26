@@ -1,7 +1,7 @@
 from app.models import Chat
 from app.db import db_session
 
-def register(func):
+def register_first(func):
     def wrapper_register(*args, **kwargs):
         message = args[0]
         if message is not None:
@@ -11,10 +11,6 @@ def register(func):
                 new_chat = Chat(id=chat.id, name=name)
                 db_session.add(new_chat)
                 db_session.commit()
-
-            print(Chat.query.filter(Chat.id==chat.id).first())
-
-        print('before')
+                
         func(*args, **kwargs)
-        print('after')
     return wrapper_register
