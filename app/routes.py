@@ -1,3 +1,4 @@
+import os
 import telebot
 
 bot = telebot.TeleBot(os.getenv("API_TOKEN"))
@@ -30,8 +31,8 @@ def get_task(message):
 
 # =====
 
-@bot.message_handler(commands=['start, help'])
-def send_welcome(message):
+@bot.message_handler(commands=['start', 'help'])
+def send_hi(message):
     bot.send_message(message.chat.id, "Hi, I'm TodoPoolBot, <usage>:")
 
 @bot.message_handler(func=lambda m: True)
